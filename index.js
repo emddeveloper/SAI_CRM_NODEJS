@@ -1,6 +1,4 @@
 import express from "express";
-import https from "https";
-import fs from "fs";
 import cors from "cors";
 import dotenv from "dotenv";
 import commercialPerformaRoutes from "./routes/commercialPerformaRoutes/commercialPerforma.js";
@@ -16,7 +14,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors("*"));
 app.use(express.json());
 
-// DB connection
+// mongoConnection();
 (async () => {
   await mongoConnection();
 })();
@@ -27,16 +25,13 @@ app.get("/", (req, res) => {
   console.log("welcomes!!");
 });
 
+
 app.use("/api/v1/commercialPerforma", commercialPerformaRoutes);
 app.use("/api/v1/gstinvoice", GSTInvoiceRoutes);
 
-// SSL options
-const sslOptions = {
-  key: fs.readFileSync("./ssl/key.pem"),
-  cert: fs.readFileSync("./ssl/cert.pem")
-};
 
-// HTTPS Server
-https.createServer(sslOptions, app).listen(PORT, () => {
-  console.log(`🔐 Server running at https://localhost:${PORT}`);
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
