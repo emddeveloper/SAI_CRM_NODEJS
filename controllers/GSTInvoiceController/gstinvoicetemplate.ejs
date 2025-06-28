@@ -254,7 +254,10 @@
   </tr>
   <tr>
     <td class="clss-cell">2</td>
-    <td class="clss-cell">SOLAR 3 PHASE INVERTER 15 KW STRUCTURE, CIVIL AND ELECTRICAL MATERIALS</td>
+    <td class="clss-cell">
+      <strong><u>SERVICE AND COMMISSIONING</u></strong><br>
+      <%= PVTotalRatingKW || '' %> KW SOLAR SYSTEM INSTALLATION AND COMMISSIONING<br>
+      </td>
     <td class="clss-cell">1</td>
     <td class="clss-cell">EA</td>
     <td class="clss-cell"> <%= installationExGST %></td>
@@ -270,7 +273,7 @@
   <tr>
     <td class="clss-cell clss-tl clss-fb clss-br-0" colspan="8" width="68%">Amount in words: <%= amountInWords %></td>
     <td class="clss-cell clss-tr clss-fb clss-bl-0" colspan="8" width="20%">Total Amount (Inc GST)</td>
-    <td class="clss-cell clss-tr clss-fb" width="12%"> <%= supplyValue%></td>
+    <td class="clss-cell clss-tr clss-fb" width="12%"> <%= TotalPaymentDone%></td>
   </tr>
 </table>
 
@@ -321,7 +324,7 @@
 </table>
 <br><br>
  <!-- Bank & Terms -->
-<table class="clss-table" style="margin-top: 50px; margin-bottom: 50px;">
+<table class="clss-table" style="margin-top: 10px; margin-bottom: 50px;">
   <tr class="clss-header">
     <td class="clss-cell" width="33.33%"><strong>Bank Details</strong></td>
     <td class="clss-cell" width="33.34%"><strong>Terms and Conditions</strong></td>
@@ -352,7 +355,7 @@
   <table width="100%" border="1" cellspacing="0" cellpadding="5">
     <tr>
       <td><strong>PV MODULE MODEL & SERIAL NUMBERS</strong><br>
-        <b>MODEL NUMBER:</b><br><br>
+        <b>MODEL NUMBER:</b><%= PVModules_ModelName %><br><br>
         <b>SERIAL NUMBER:</b><br>
         <% if (Array.isArray(PVModules_SL)) { %>
           <% PVModules_SL.forEach(function(sn) { %>
@@ -362,7 +365,7 @@
         <br><br>
         <br><br>
         <strong>INVERTER MODEL & SERIAL NUMBER</strong><br><br>
-        <b>MODEL NUMBER:</b><br><br>
+        <b>MODEL NUMBER:</b><%= Inverters_ModelName %><br><br>
         <b>SERIAL NUMBER:</b><br>
        <% if (Array.isArray(Inverters_SL)) { %>
           <% Inverters_SL.forEach(function(sn) { %>
@@ -371,7 +374,7 @@
         <% } %>
         <br><br>
         <strong>BATTERY MODEL & SERIAL NUMBERS</strong><br><br>
-        <b>MODEL NUMBER:</b><br><br>
+        <b>MODEL NUMBER:</b><%= Batteries_ModelName %><br><br>
         <b>SERIAL NUMBER:</b><br>
         <% if (Array.isArray(Batteries_SL)) { %>
           <% Batteries_SL.forEach(function(sn) { %>
@@ -389,7 +392,7 @@
     </tr>
   </table>
 
-  <p>Good Received in Order and in Good Condition</p>
+  <p>Thank you for your business. This invoice is issued under applicable GST laws for the supply and installation of solar PV systems, please contact us if need any services. Thank you for choosing sustainable energy with us.</p>
 
 
  

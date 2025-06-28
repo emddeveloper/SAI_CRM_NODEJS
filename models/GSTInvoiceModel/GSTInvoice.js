@@ -34,7 +34,8 @@ const GSTInvoiceSchema = new mongoose.Schema(
     materialDetails: String,
     inverterDetails:String,
     batteryDetails:String,
-    amountInWords: String
+    amountInWords: String,
+    PVTotalRatingKW:Number
   },
   {
     timestamps: true,
