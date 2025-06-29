@@ -14,7 +14,7 @@ const templatePath = path.join(__dirname, "gstinvoicetemplate.ejs");
 const generateGSTInvoiceNumber = async () => {
   const lastEntry = await GSTInvoiceModel
     .findOne()
-    .sort({ createdAt: -1 })
+    .sort({ createdAt: -1 }) 
     .select("TDGINV");
 
   if (!lastEntry || !lastEntry.TDGINV) {

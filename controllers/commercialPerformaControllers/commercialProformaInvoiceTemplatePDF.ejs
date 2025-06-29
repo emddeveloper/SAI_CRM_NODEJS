@@ -1,318 +1,319 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Commercial Proforma Invoice</title>
+  <meta charset="utf-8">
+  <title>Proforma Invoice</title>
   <style>
-  .clss-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-  }
-  .clss-cell {
-    border: 1px solid #000;
-    padding: 4px 4px;
-    vertical-align: top;
-  }
-  .clss-no-border {
-    border: none;
-  }
-  .clss-title {
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-    padding: 6px 0;
-  }
-  .clss-header {
-    background-color: #f0f0f0;
-    font-weight: bold;
-  }
-  .clss-total {
-    font-weight: bold;
-    background-color: #e0e0e0;
-  }
-  .clss-p0{
-      padding: 0;
-  } 
-  .clss-m0{
-      margin: 0;
-  }
-  .clss-bl-0{
-      border-left: 0;
-  }
-  .clss-br-0{
-      border-right: 0;
-  }
-  .clss-bt-0{
-      border-top: 0;
-  }
-  .clss-bb-0{
-      border-bottom: 0;
-  }
-  .clss-tr {
-    text-align: right;
-  }
-  .clss-tc {
-    text-align: center;
-  }
-  .clss-tl{
-    text-align: left;
-  }
-  .clss-fb{
+    .clss-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+    .clss-cell {
+      border: 1px solid #000;
+      padding: 4px 4px;
+      vertical-align: top;
+    }
+    .clss-no-border {
+      border: none;
+    }
+    .clss-title {
+      font-size: 14px;
       font-weight: bold;
-  }
-  .clss-fsize-18 {
-    font-size: 18px;
-  }
-  .clss-fsize-16 {
-    font-size: 16px;
-  }
-  .clss-fsize-14 {
-    font-size: 14px;
-  }
-  a{
-    text-decoration: none !important;
-    color: black;
-  }
-  .clss-textc-white{
-    color: white;
-  } 
-  .clss-bgc-green {
-    background-color: #18aa48; /* Green background */
-  }
-  .clss-bgc-gray{
-     background-color: #f0f0f0;
-  }
-  .clss-p10 {
-    padding: 10px;
-  }
-  .clss-pt-10 {
-    padding-top: 10px;
-  }
-  .clss-pt-15 {
-    padding-top: 15px;
-  }
-  .clss-mt-20 {
-    padding-top: 10px;
-  }
-  .clss-table-material .clss-cell{
-   padding: 8px 5px;
-   vertical-align: middle;
-  }
+      text-align: center;
+      padding: 6px 0;
+    }
+    .clss-header {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+    .clss-total {
+      font-weight: bold;
+      background-color: #e0e0e0;
+    }
+    .clss-p0 {
+      padding: 0;
+    }
+    .clss-m0 {
+      margin: 0;
+    }
+    .clss-bl-0 {
+      border-left: 0;
+    }
+    .clss-br-0 {
+      border-right: 0;
+    }
+    .clss-bt-0 {
+      border-top: 0;
+    }
+    .clss-bb-0 {
+      border-bottom: 0;
+    }
+    .clss-tr {
+      text-align: right;
+    }
+    .clss-tc {
+      text-align: center;
+    }
+    .clss-tl {
+      text-align: left;
+    }
+    .clss-fb {
+      font-weight: bold;
+    }
+    .clss-fsize-18 {
+      font-size: 18px;
+    }
+    .clss-fsize-16 {
+      font-size: 16px;
+    }
+    .clss-fsize-14 {
+      font-size: 14px;
+    }
+    a {
+      text-decoration: none !important;
+      color: black;
+    }
+    .clss-textc-white {
+      color: white;
+    }
+    .clss-bgc-green {
+      background-color: #18aa48;
+    }
+    .clss-bgc-gray {
+      background-color: #f0f0f0;
+    }
+    .clss-p10 {
+      padding: 10px;
+    }
+    .clss-pt-10 {
+      padding-top: 10px;
+    }
+    .clss-pt-15 {
+      padding-top: 15px;
+    }
+    .clss-mt-20 {
+      padding-top: 10px;
+    }
+    .clss-table-material .clss-cell {
+      padding: 8px 5px;
+      vertical-align: middle;
+    }
+    .clss-up {
+      text-transform: uppercase;
+    }
+    .clss-camel {
+      text-transform: capitalize;
+    }
+    .clss-lower {
+      text-transform: lowercase;
+    }
   </style>
 </head>
-<body class="clss-p10">
-
-<!-- Header with logo and company info -->
-<table class="clss-table">
-  <tr>
-    <td colspan="3" width="33%" class="clss-no-border clss-fsize-14">
-      <img src="./TDlogo.png" alt="Company Logo" style="width: 80%; height: auto;">
-      <br><br>
-      <a href="tel:+919775550672">9775550672</a><br>
-      <a href="tel:+918777414403">8777414403</a><br>
-      <a href="tel:+919732550550">9732550550</br><br>
-      <a href="mailto:contact@tdsolar.in">contact@tdsolar.in</a><br>
-      <a href="www.tdsolar.in">www.tdsolar.in</a><br>
-    </td>
-    <td colspan="3" width="33%" class="clss-no-border clss-pt-15" style="text-align: left;vertical-align: top;">
-      <span class="clss-fsize-18 clss-fb clss-textc-white clss-bgc-green clss-p10">{{clientId}}</span><br>
-    </td>
-    <td colspan="3" width="33%" class="clss-no-border clss-tr">
-      <img src="./logo.jpg" alt="Company Logo" style="width: 270px; height: 150px;">
-    </td>
-  </tr>
-</table>
-
-<!-- To, From, and Invoice Details (3-column layout) -->
-<table class="clss-table" style="margin-top: 4px;">
-  <tr>
-    <td class="clss-cell" width="33%"><strong>To,</strong><br>
-      Bithi Farm Pvt Ltd<br>
-      C/o - Aritra Bhattacharya<br>
-      Vill- Mandal Bandh,<br>
-      Najaijuri, Onda Bankura<br>
-      Pin-722144<br>
-      9433164940<br>
-      dwipayandey33@gmail.com
-    </td>
-    <td class="clss-cell" width="33%"><strong>From,</strong><br>
-      TD SOLAR (Technical Dwipayan)<br>
-      GR FL SHOP NO 2&amp;5, RAJNANDINI VILLA,<br>
-      KHARDAHA THANA ROAD 45,<br>
-      NORTH 24 PARGANAS,<br>
-      KOLKATA - 700116<br><br>
-      GSTIN: 19AAGFTDSSS1Z2
-    </td>
-    <td class="clss-cell clss-p0 clss-m0" width="34%">
-      <table class="clss-table">
-        <tr>
-          <td class="clss-cell clss-bl-0 clss-bt-0" width="50%">Date</td>
-          <td class="clss-cell clss-br-0 clss-bt-0" width="50%">14/06/2025</td>
-        </tr>
-        <tr>
-          <td class="clss-cell clss-bl-0">Client Code</td>
-          <td class="clss-cell clss-br-0">Sc4059</td>
-        </tr>
-        <tr>
-          <td class="clss-cell clss-bl-0">Client Mobile</td>
-          <td class="clss-cell clss-br-0">99999999</td>
-        </tr>
-        <tr>
-          <td class="clss-cell clss-bl-0">Proforma Invoice No.</td>
-          <td class="clss-cell clss-br-0">TDCPI1022</td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
-
-
-<!-- Invoice title and details -->
-<table class="clss-table">
-  <tr>
-    <td colspan="4" class="clss-title clss-bgc-gray">PROFORMA INVOICE</td>
-  </tr>
-  <tr>
-    <td colspan="4" class="clss-cell clss-bb-0 clss-fsize-16 clss-p10"><b>Project Type :</b> 14.58 kW &nbsp;Phase Type : 3-Ph</td>
-  </tr>
-</table>
-
-<!-- Material list -->
-<table class="clss-table clss-table-material">
-  <tr class="clss-header">
-    <td class="clss-cell">#</td>
-    <td class="clss-cell" width="40%">Materials</td>
-    <td class="clss-cell">HSN</td>
-    <td class="clss-cell">Quantity</td>
-    <td class="clss-cell">Unit Price</td>
-    <td class="clss-cell">Base Amount</td>
-    <td class="clss-cell">GST (%)</td>
-    <td class="clss-cell">GST Amount</td>
-    <td class="clss-cell clss-tc" width="12%">Inc.GST Amount</td>
-  </tr>
-  <tr>
-    <td class="clss-cell">1</td>
-    <td class="clss-cell">SOLAR PV MODULS 540WPS</td>
-    <td class="clss-cell">540</td>
-    <td class="clss-cell">27 Nos</td>
-    <td class="clss-cell"> 10,322.00</td>
-    <td class="clss-cell"> 278,694.00</td>
-    <td class="clss-cell">12</td>
-    <td class="clss-cell">12</td>
-    <td class="clss-cell clss-tr">33,443.28</td>
-  </tr>
-  <tr>
-    <td class="clss-cell">2</td>
-    <td class="clss-cell">SOLAR 3 PHASE INVERTER 15 KW STRUCTURE, CIVIL AND ELECTRICAL MATERIALS</td>
-    <td class="clss-cell"></td>
-    <td class="clss-cell">1 EA</td>
-    <td class="clss-cell"> 225,471.00</td>
-    <td class="clss-cell"> 225,471.00</td>
-    <td class="clss-cell">12</td>
-    <td class="clss-cell">12</td>
-    <td class="clss-cell clss-tr">27,056.52</td>
-  </tr>
-  <tr>
-    <td class="clss-cell">3</td>
-    <td class="clss-cell">INSTALLATION, COMMISSIONING AND TRANSPORTATION INCLUDING ALL BALANCE MATERIALS</td>
-    <td class="clss-cell"></td>
-    <td class="clss-cell">1 EA</td>
-    <td class="clss-cell"> 119,491.00</td>
-    <td class="clss-cell"> 119,491.00</td>
-    <td class="clss-cell">18</td>
-    <td class="clss-cell">18</td>
-    <td class="clss-cell clss-tr"> 21,508.38</td>
-  </tr>
-</table>
-
-<!-- New table for Total Amount (Inc GST) -->
-<table class="clss-table">
-  <tr>
-    <td class="clss-cell clss-tl clss-fb clss-br-0" colspan="8" width="68%">Amount in words:-</td>
-    <td class="clss-cell clss-tr clss-fb clss-bl-0" colspan="8" width="20%">Total Amount (Inc GST)</td>
-    <td class="clss-cell clss-tr clss-fb" width="12%"> 21,508.38</td>
-  </tr>
-</table>
-
-<!--DEVIDER-->
-<br><br>
-
-
-<!-- Tax breakdown -->
-<table class="clss-table">
+<body style="font-family: Arial, sans-serif; font-size: 12px;">
+  <!-- Header with logo and company info -->
+  <table class="clss-table">
     <tr>
-        <td class="clss-cell clss-fb clss-bgc-gray" colspan="5">Tax Breakdown</td>
+      <td colspan="3" width="33%" class="clss-no-border clss-fsize-14">
+        <img src="https://tdsolar.in/cdn_images/TDlogo.png" alt="Company Logo" style="width: 80%; height: auto;">
+        <br><br>
+        <a href="tel:+919775550672">9775550672</a><br>
+        <a href="tel:+918777414403">8777414403</a><br>
+        <a href="tel:+919732550550">9732550550</br><br>
+        <a href="mailto:contact@tdsolar.in">contact@tdsolar.in</a><br>
+        <a href="www.tdsolar.in">www.tdsolar.in</a><br>
+      </td>
+      <td colspan="3" width="33%" class="clss-no-border clss-pt-15" style="text-align: left;vertical-align: top;">
+        <span class="clss-fsize-18 clss-fb clss-textc-white clss-bgc-green clss-p10">SOLAR GREEN ENERGY</span><br><br>
+        <strong>TD SOLAR (Technical Dwipayan)</strong><br>
+        GR FL SHOP NO 2&5, RAJNANDINI VILLA,<br>
+        KHARDAHA THANA ROAD 45,<br>
+        NORTH 24 PARGANAS,<br>
+        KOLKATA - 700116<br><br>
+        <strong>GSTIN: 19AAGFTDSSS1Z2</strong>
+      </td>
+      <td colspan="3" width="33%" class="clss-no-border clss-tr">
+        <img src="https://tdsolar.in/cdn_images/logo.png" alt="Company Logo" style="width: 270px; height: 150px;">
+      </td>
     </tr>
-  <tr class="clss-header">
-    <td class="clss-cell">Tax Type</td>
-    <td class="clss-cell">Taxable Amount</td>
-    <td class="clss-cell">Rate</td>
-    <td class="clss-cell">Tax Amount</td>
-    <td class="clss-cell">Description</td>
-  </tr>
-  <tr>
-    <td class="clss-cell">SGST</td>
-    <td class="clss-cell"> 278,694.00</td>
-    <td class="clss-cell">6.0%</td>
-    <td class="clss-cell"> 16,721.64</td>
-    <td class="clss-cell">NET BILLING METER GOV CHARGE EXTRA</td>
-  </tr>
-  <tr>
-    <td class="clss-cell">CGST</td>
-    <td class="clss-cell"> 278,694.00</td>
-    <td class="clss-cell">6.0%</td>
-    <td class="clss-cell"> 16,721.64</td>
-    <td class="clss-cell"></td>
-  </tr>
-  <tr>
-    <td class="clss-cell">SGST</td>
-    <td class="clss-cell"> 344,962.00</td>
-    <td class="clss-cell">9.0%</td>
-    <td class="clss-cell"> 31,046.58</td>
-    <td class="clss-cell"></td>
-  </tr>
-  <tr>
-    <td class="clss-cell">CGST</td>
-    <td class="clss-cell"> 344,962.00</td>
-    <td class="clss-cell">9.0%</td>
-    <td class="clss-cell"> 31,046.58</td>
-    <td class="clss-cell"></td>
-  </tr>
-</table>
-<br><br>
-<!-- Bank & Terms -->
-<table class="clss-table" style="margin-top: 144px;">
-  <tr class="clss-header">
-    <td class="clss-cell" width="33.33%"><strong>Bank Details</strong></td>
-    <td class="clss-cell" width="33.34%"><strong>Terms and Conditions</strong></td>
-    <td class="clss-cell clss-tc" width="33.33%"><strong>For TD Solar (Technical Dwipayan)</strong></td>
-  </tr>
-  <tr>
-    <td class="clss-cell" valign="top">
-      A/C NAME - TECHNICAL DWIPAYAN<br>
-      NAME OF BANK : STATE BANK OF INDIA<br>
-      BRANCH CITY : KHARDAH BRANCH<br>
-      TYPE OF ACCOUNT : CURRENT ACCOUNT<br>
-      ACCOUNT NUMBER : 41416611152<br>
-      IFSC CODE : SBIN0001899
-    </td>
-    <td class="clss-cell" valign="top">
-      1. This quote is valid for 15 days<br>
-      2. Payment must be made as per agreed payment terms<br>
-      3. Warranty & guarantee as per company policies.
-    </td>
-    <td class="clss-cell clss-tc" valign="top">
-        <img src="./stamp.png" alt="Signature" style="width: 130px; height: auto;"><br>
+  </table>
+
+  <!-- To, From, and Invoice Details (3-column layout) -->
+  <table class="clss-table" style="margin-top: 4px;">
+    <tr>
+      <td class="clss-cell clss-camel" width="33%">
+        <strong class="clss-up">Buyer Details</strong><br><br>
+        <%= ClientName %><br>
+        <%= ClientAddress %><br>
+        <%= ClientState %><br><br>
+        <%= ClientMobile %><br>
+        <span class="clss-lower"><%= ClientEmail %></span>
+      </td>
+      <td class="clss-cell clss-camel" width="33%"><strong class="clss-up">Consignee Details</strong><br><br>
+        <%= ClientName %><br>
+        <%= ClientAddress %><br>
+        <%= ClientState %><br><br>
+        <%= ClientMobile %><br>
+        <span class="clss-lower"><%= ClientEmail %></span>
+      </td>
+      <td class="clss-cell clss-p0 clss-m0" width="34%">
+        <table class="clss-table">
+          <tr>
+            <td class="clss-cell clss-bl-0 clss-bt-0" width="50%">Proposal Date</td>
+            <td class="clss-cell clss-br-0 clss-bt-0" width="50%"><%= ProposalDate %></td>
+          </tr>
+          <tr>
+            <td class="clss-cell clss-bl-0">Proforma No.</td>
+            <td class="clss-cell clss-br-0"><%= TDPIC %></td>
+          </tr>
+          <tr>
+            <td class="clss-cell clss-bl-0">Client Code</td>
+            <td class="clss-cell clss-br-0">SC1044</td>
+          </tr>
+          <td class="clss-cell clss-bl-0">Client Mobile</td>
+          <td class="clss-cell clss-br-0"><%= ClientMobile %></td>
+        </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <h2 style="text-align:center;">PROFORMA INVOICE</h2>
+
+  <!-- Material list -->
+  <%
+    // Calculate supply value and GST
+    const supplyValue = (TotalPaymentDone * SupplyPercentage / 100).toFixed(2);
+    const supplyExGST = (supplyValue * (100 / 112)).toFixed(2);
+    const supplyGST = (supplyValue - supplyExGST).toFixed(2);
+    // Calculate Installation value and GST
+    const installationValue = (TotalPaymentDone * (100 - SupplyPercentage) / 100).toFixed(2);
+    const installationExGST = (installationValue * (100 / 118)).toFixed(2);
+    const installationGST = (installationValue - installationExGST).toFixed(2);
+  %>
+  <table class="clss-table clss-table-material">
+    <tr class="clss-header">
+      <td class="clss-cell">SL No.</td>
+      <td class="clss-cell" width="40%">Commodity Description</td>
+      <td class="clss-cell">Qty</td>
+      <td class="clss-cell">Unit</td>
+      <td class="clss-cell">Unit Price</td>
+      <td class="clss-cell">GST</td>
+      <td class="clss-cell">GST Amount</td>
+      <td class="clss-cell clss-tc" width="12%">Inc.GST Amount</td>
+    </tr>
+    <tr>
+      <td class="clss-cell">1</td>
+      <td class="clss-cell">
+        <strong><u>SUPPLY MATERIALS</u></strong><br>
+        SOLAR POWER GENERATION SYSTEM<br>
+        SOLAR PV MODULES: <%= materialDetails %><br>
+        INVERTER: <%= inverterDetails %><br>
+        BATTERIES: <%= batteryDetails %><br>
+        STRUCTURE AND OTHER EQUIPMENTS (ACDB, DCDB, CABLES, EARTHING EXTRA)
+      </td>
+      <td class="clss-cell">1</td>
+      <td class="clss-cell">EA</td>
+      <td class="clss-cell"><%= supplyExGST %></td>
+      <td class="clss-cell">12%</td>
+      <td class="clss-cell"><%= supplyGST %></td>
+      <td class="clss-cell clss-tr"><%= supplyValue %></td>
+    </tr>
+    <tr>
+      <td class="clss-cell">2</td>
+      <td class="clss-cell">
+        <strong><u>SERVICE AND COMMISSIONING</u></strong><br>
+        <%= PVTotalRatingKW %> KW SOLAR SYSTEM INSTALLATION AND COMMISSIONING
+      </td>
+      <td class="clss-cell">1</td>
+      <td class="clss-cell">EA</td>
+      <td class="clss-cell"><%= installationExGST %></td>
+      <td class="clss-cell">18%</td>
+      <td class="clss-cell"><%= installationGST %></td>
+      <td class="clss-cell clss-tr"><%= installationValue %></td>
+    </tr>
+  </table>
+
+  <!-- Total Amount -->
+  <table class="clss-table">
+    <tr>
+      <td class="clss-cell clss-tl clss-fb clss-br-0" colspan="8" width="68%">Amount in words: <%= amountInWords %></td>
+      <td class="clss-cell clss-tr clss-fb clss-bl-0" colspan="8" width="20%">Total Amount (Inc GST)</td>
+      <td class="clss-cell clss-tr clss-fb" width="12%"><%= TotalPaymentDone %></td>
+    </tr>
+  </table>
+
+  <!-- Tax breakdown -->
+  <table class="clss-table">
+    <tr>
+      <td class="clss-cell clss-fb clss-bgc-gray" colspan="5">Tax Breakdown</td>
+    </tr>
+    <tr class="clss-header">
+      <td class="clss-cell">Tax Type</td>
+      <td class="clss-cell">Taxable Amount</td>
+      <td class="clss-cell">Rate</td>
+      <td class="clss-cell">Tax Amount</td>
+      <td class="clss-cell">Description</td>
+    </tr>
+    <tr>
+      <td class="clss-cell">SGST</td>
+      <td class="clss-cell"><%= supplyExGST %></td>
+      <td class="clss-cell">6.0%</td>
+      <td class="clss-cell"><%= ((supplyGST) * 0.5).toFixed(2) %></td>
+      <td class="clss-cell">NET BILLING METER GOV CHARGE EXTRA</td>
+    </tr>
+    <tr>
+      <td class="clss-cell">CGST</td>
+      <td class="clss-cell"><%= supplyExGST %></td>
+      <td class="clss-cell">6.0%</td>
+      <td class="clss-cell"><%= ((supplyGST) * 0.5).toFixed(2) %></td>
+      <td class="clss-cell"></td>
+    </tr>
+    <tr>
+      <td class="clss-cell">SGST</td>
+      <td class="clss-cell"><%= installationExGST %></td>
+      <td class="clss-cell">9.0%</td>
+      <td class="clss-cell"><%= ((installationGST) * 0.5).toFixed(2) %></td>
+      <td class="clss-cell"></td>
+    </tr>
+    <tr>
+      <td class="clss-cell">CGST</td>
+      <td class="clss-cell"><%= installationExGST %></td>
+      <td class="clss-cell">9.0%</td>
+      <td class="clss-cell"><%= ((installationGST) * 0.5).toFixed(2) %></td>
+      <td class="clss-cell"></td>
+    </tr>
+  </table>
+
+  <!-- Bank & Terms -->
+  <table class="clss-table" style="margin-top: 10px; margin-bottom: 50px;">
+    <tr class="clss-header">
+      <td class="clss-cell" width="33.33%"><strong>Bank Details</strong></td>
+      <td class="clss-cell" width="33.34%"><strong>Terms and Conditions</strong></td>
+      <td class="clss-cell clss-tc" width="33.33%"><strong>For TD Solar (Technical Dwipayan)</strong></td>
+    </tr>
+    <tr>
+      <td class="clss-cell" valign="top">
+        A/C NAME - TECHNICAL DWIPAYAN<br>
+        NAME OF BANK : STATE BANK OF INDIA<br>
+        BRANCH CITY : KHARDAH BRANCH<br>
+        TYPE OF ACCOUNT : CURRENT ACCOUNT<br>
+        ACCOUNT NUMBER : 41416611152<br>
+        IFSC CODE : SBIN0001899
+      </td>
+      <td class="clss-cell" valign="top">
+        1. This quote is valid for 15 days<br>
+        2. Payment must be made as per agreed payment terms<br>
+        3. Warranty & guarantee as per company policies.
+      </td>
+      <td class="clss-cell clss-tc" valign="top">
+        <img src="https://tdsolar.in/cdn_images/stamp.png" alt="Signature" style="width: 130px; height: auto;"><br>
         Authorized Signatory
+      </td>
+    </tr>
+  </table>
 
-    </td>
-  </tr>
-</table>
-
-<!-- Signature -->
-<p style="font-size: 10px;text-align: right;">Generated By - Dwipayan</p>
-
+  <!-- Signature -->
+  <p style="font-size: 10px;text-align: right;">Generated By - Dwipayan</p>
 </body>
 </html>

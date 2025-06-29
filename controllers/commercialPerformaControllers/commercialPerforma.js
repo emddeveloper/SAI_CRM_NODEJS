@@ -1,8 +1,66 @@
 import CommercialPerforma from "../../models/commercialPerformaModel/commercialPerforma.js";
 
+// const generateProformaInvoiceNumber = async () => {
+//   const lastEntry = await CommercialPerforma.findOne()
+//     .sort({ createdAt: -1 }) // Get the most recent entry
+//     .select("TDPIC");
+
+//   if (!lastEntry || !lastEntry.TDPIC) {
+//     return "TDPIC01";
+//   }
+
+//   const lastNumber = parseInt(lastEntry.TDPIC.replace("TDPIC", "")) || 0;
+//   const newNumber = lastNumber + 1;
+
+//   // Pad with leading zeroes to keep two digits (01, 02, ..., 10, etc.)
+//   return `TDPIC${String(newNumber).padStart(2, "0")}`;
+// };
+
+// const createCommercialPerforma = async (req, res) => {
+//   try {
+//     const { otp, ...formData } = req.body;
+
+//     // Validate OTP
+//     if (!otp || otp !== process.env.OTP) {
+//       return res.status(401).json({
+//         message: "You are not authorized to perform this action",
+//       });
+//     }
+
+//     // Generate new TDPIC
+//     const TDPIC = await generateProformaInvoiceNumber();
+
+//     // Add it to form data
+//     const newEntry = await CommercialPerforma.create({
+//       ...formData,
+//       TDPIC,
+//     });
+//     return res.status(201).json({
+//       message: "Commercial Performa submitted successfully",
+//       data: newEntry,
+//     });
+//   } catch (error) {
+//     return res.status(500).json({
+//       message: "Error submitting Commercial Performa to database",
+//       error: error.message,
+//     });
+//   }
+// };
+
+
+import path from "path";
+import { fileURLToPath } from "url";
+import puppeteer from "puppeteer";
+import ejs from "ejs";
+
+// Load template once at startup
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const templatePath = path.join(__dirname, "commercialProformaInvoiceTemplatePDF.ejs");
+
 const generateProformaInvoiceNumber = async () => {
   const lastEntry = await CommercialPerforma.findOne()
-    .sort({ createdAt: -1 }) // Get the most recent entry
+    .sort({ createdAt: -1 })
     .select("TDPIC");
 
   if (!lastEntry || !lastEntry.TDPIC) {
@@ -12,7 +70,6 @@ const generateProformaInvoiceNumber = async () => {
   const lastNumber = parseInt(lastEntry.TDPIC.replace("TDPIC", "")) || 0;
   const newNumber = lastNumber + 1;
 
-  // Pad with leading zeroes to keep two digits (01, 02, ..., 10, etc.)
   return `TDPIC${String(newNumber).padStart(2, "0")}`;
 };
 
@@ -30,15 +87,49 @@ const createCommercialPerforma = async (req, res) => {
     // Generate new TDPIC
     const TDPIC = await generateProformaInvoiceNumber();
 
-    // Add it to form data
+    // Save to MongoDB
     const newEntry = await CommercialPerforma.create({
       ...formData,
       TDPIC,
     });
-    return res.status(201).json({
-      message: "Commercial Performa submitted successfully",
-      data: newEntry,
+
+    // Convert Mongoose document to plain object for EJS rendering
+    // const entryObj = newEntry.toObject();
+
+    // Render HTML with EJS, using static data for now
+    const staticData = {
+      ClientName: "John Doe",
+      ClientAddress: "123 Solar Street, Kolkata",
+      ClientState: "West Bengal",
+      ClientMobile: "9999966666",
+      ClientEmail: "client@example.com",
+      TDPIC: TDPIC,
+      ProposalDate: new Date().toISOString().split("T")[0],
+      TotalPaymentDone: "250000.00",
+      SupplyPercentage: "80",
+      PVTotalRatingKW: "5.35",
+      amountInWords: "Two Lakh Fifty Thousand Rupees Only",
+      materialDetails: "LUMINOUS 535W Mono-PERC",
+      inverterDetails: "DEYE 5KW",
+      batteryDetails: "UTL 150AH Li-Battery",
+    };
+    const html = await ejs.renderFile(templatePath, staticData);
+
+    // Generate PDF with puppeteer
+    const browser = await puppeteer.launch({
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
+    const page = await browser.newPage();
+    await page.setContent(html, { waitUntil: "networkidle0" });
+    const pdfBuffer = await page.pdf({ format: "A4", printBackground: true });
+    await browser.close();
+
+    res.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": `attachment; filename=${TDPIC}.pdf`,
+    });
+    return res.status(200).send(pdfBuffer);
   } catch (error) {
     return res.status(500).json({
       message: "Error submitting Commercial Performa to database",
@@ -46,6 +137,8 @@ const createCommercialPerforma = async (req, res) => {
     });
   }
 };
+
+
 
 const getCommercialPerforma = async (req, res) => {
   try {
