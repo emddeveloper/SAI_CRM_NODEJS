@@ -1,8 +1,7 @@
 import CommercialPerforma from "../../models/commercialPerformaModel/commercialPerforma.js";
 
 const generateProformaInvoiceNumber = async () => {
-  const lastEntry = await CommercialPerforma
-    .findOne()
+  const lastEntry = await CommercialPerforma.findOne()
     .sort({ createdAt: -1 }) // Get the most recent entry
     .select("TDPIC");
 
@@ -36,13 +35,10 @@ const createCommercialPerforma = async (req, res) => {
       ...formData,
       TDPIC,
     });
-
     return res.status(201).json({
       message: "Commercial Performa submitted successfully",
       data: newEntry,
-      status: "success",
     });
-
   } catch (error) {
     return res.status(500).json({
       message: "Error submitting Commercial Performa to database",
