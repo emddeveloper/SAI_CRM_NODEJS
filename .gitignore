@@ -26,4 +26,6 @@ build/
 # Coverage
 coverage/
 
-#
+# Ignore package-lock
+package-lock.json
+.env

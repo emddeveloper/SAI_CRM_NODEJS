@@ -3,7 +3,10 @@ import path from "path";
 import { fileURLToPath } from "url";
 import puppeteer from "puppeteer"; // Use puppeteer instead of html-pdf-node
 import ejs from "ejs";
+import nodemailer from "nodemailer";
 import { amountInwords } from "../../shared/shared.js";
+import { sendEmailWithPDF } from "../../shared/emailUtil.js";
+// ...existing code...
 
 // Load template once at startup
 const __filename = fileURLToPath(import.meta.url);
@@ -51,7 +54,6 @@ const createGSTInvoice = async (req, res) => {
 
     // Render HTML with EJS, passing all formData and items
     const html = await ejs.renderFile(templatePath, entryObj);
-    console.log(entryObj);
 
     // Generate PDF with puppeteer
     const browser = await puppeteer.launch({
@@ -67,6 +69,8 @@ const createGSTInvoice = async (req, res) => {
       "Content-Type": "application/pdf",
       "Content-Disposition": `attachment; filename=${TDGINV}.pdf`,
     });
+    console.log(entryObj );
+    await sendEmailWithPDF(pdfBuffer,entryObj.ClientEmail,entryObj.ClientName,entryObj.TDGINV);
     return res.status(200).send(pdfBuffer);
 
   } catch (error) {
