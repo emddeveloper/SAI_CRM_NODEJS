@@ -113,7 +113,7 @@ const createCommercialPerforma = async (req, res) => {
       inverterDetails: "DEYE 5KW",
       batteryDetails: "UTL 150AH Li-Battery",
     };
-    const html = await ejs.renderFile(templatePath, staticData);
+    const html = await ejs.renderFile(templatePath, newEntry);
 
     // Generate PDF with puppeteer
     const browser = await puppeteer.launch({
