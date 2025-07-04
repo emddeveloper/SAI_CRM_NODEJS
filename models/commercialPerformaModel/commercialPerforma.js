@@ -50,10 +50,11 @@ const CommercialPerformaSchema = new mongoose.Schema(
 
     // === Group 3: Material 1 ===
     mat1Required3: Boolean,
-    mat1Quantity3: String,
-    mat1QUnit3: String,
+    mat1Quantity3: String,//NN
+    mat1QUnit3: String,//NN
 
     // === Group 4: Inverter ===
+    invRequired4: Boolean,//ADDED
     invBrand4: String,
     invRating4: Number,
     invQuantity4: String,
@@ -61,25 +62,26 @@ const CommercialPerformaSchema = new mongoose.Schema(
 
     // === Group 5: Material 2 ===
     mat2Required5: Boolean,
-    mat2Quantity5: String,
-    mat2QUnit5: String,
+    mat2Quantity5: String,//NN
+    mat2QUnit5: String,//NN
 
     // === Group 6: Bus MCB ===
     busMcbRequired6: Boolean,
-    busMcbQuantity6: String,
-    busMcbQUnit6: String,
+    busMcbQuantity6: String,//NN
+    busMcbQUnit6: String,//NN
 
     // === Group 7: Fire Extinguisher ===
     fireERequired7: Boolean,
-    fireEQuantity7: String,
-    fireEQUnit7: String,
+    fireEQuantity7: String,//NN
+    fireEQUnit7: String,//NN
 
     // === Group 8: Auto Cleaning ===
     autoCleanRequired8: Boolean,
-    autoCleanQuantity8: String,
-    autoCleanQUnit8: String,
+    autoCleanQuantity8: String,//NN
+    autoCleanQUnit8: String,//NN
 
-    // === Batteries ===
+    // === Batteries === //NOT ADDED IN PDF
+    batteryRequired: Boolean,//ADDED
     batteryBrand: String,
     batteryType: String,
     batteryCapacity: String,
