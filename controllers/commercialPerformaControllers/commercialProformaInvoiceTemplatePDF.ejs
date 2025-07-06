@@ -161,7 +161,7 @@
       <table class="clss-table">
         <tr>
           <td class="clss-cell clss-bl-0 clss-bt-0" width="50%">Invoice Date</td>
-          <td class="clss-cell clss-br-0 clss-bt-0" width="50%">TODO</td>
+          <td class="clss-cell clss-br-0 clss-bt-0" width="50%"></td>
         </tr>
          <tr>
           <td class="clss-cell clss-bl-0">Proforma Invoice No.</td>
@@ -181,12 +181,11 @@
 </table>
   <h2 style="text-align:center;margin: 0; padding:1rem;" class="clss-header">COMMERCIAL PROFORMA INVOICE</h2>
 
-
   <!-- Material list -->
 <table class="clss-table clss-table-material">
   <tr class="clss-header">
     <td class="clss-cell">SL No.</td>
-    <td class="clss-cell" width="80%">Commodity Description</td>
+    <td class="clss-cell" width="70%">Commodity Description: Project Detail:3-Phase Solar PV System <%= (modRating1*modQuantity1)/1000 %></td>
     <td class="clss-cell">Qty</td>
     <td class="clss-cell">Unit</td>
   </tr>
@@ -235,9 +234,9 @@
         DC Junction Box<br>
         PVC Pipe & Connectors, fastener clips, Wire Ties<br>
         Lighting Arrestor(LA) & Earthing with GI Strip/10Sqmm Aluminum Cable,<br>
-        Pipe2.5 Meter, Pit Cover Bulti, Nut & Bolts, wire fastener clips, Wire Ties.<br>
+        Pipe2.5 Meter, Pit Mount Hole Cover, Nut & Bolts, wire fastener clips, Wire Ties.<br>
         Direct Current Distribution box (DCDB) & Earthing with GI Strip/10Sqmm Aluminum Cable,<br>
-        Pipe2.5 Meter, Pit Cover Bulti, Nut & Bolts, wire fastener clips, Wire Ties.<br>
+        Pipe2.5 Meter, Pit Mount Hole Cover, Nut & Bolts, wire fastener clips, Wire Ties.<br>
         Earthing Bus-Bar
       </td>
       <td class="clss-cell">1</td>
@@ -264,7 +263,7 @@
       <td class="clss-cell">
         AC Al Cable (As per Requirement )<br>
         Alternating Current Distribution box (ACDB) & Earthing with GI Strip/10Sqmm Aluminum Cable,<br>
-        Pipe2.5 Meter, Pit Cover Bulti, Nut & Bolts, wire fastener clips, Wire Ties.
+        Pipe2.5 Meter, Pit Mount Hole Cover, Nut & Bolts, wire fastener clips, Wire Ties.
       </td>
       <td class="clss-cell">1</td>
       <td class="clss-cell">Sets</td>
@@ -288,7 +287,7 @@
     <tr>
       <td class="clss-cell">7</td>
       <td class="clss-cell">
-        Fire Extinguisher
+        <strong>Fire Extinguisher</strong>
       </td>
       <td class="clss-cell">1</td>
       <td class="clss-cell">Sets</td>
@@ -300,24 +299,45 @@
     <tr>
       <td class="clss-cell">8</td>
       <td class="clss-cell">
-        Automatic sprinkler system for solar panel cleaning
+        <strong>Automatic Sprinkler System for Solar Panel Cleaning Using Water</strong>
       </td>
       <td class="clss-cell">1</td>
       <td class="clss-cell">Sets</td>
     </tr>
   <% } %>
+
+  <!-- Calculation Amount -->
+    <tr class="clss-header">
+      <td class="clss-cell" colspan="2" style="text-align: right;"><strong>PriceIncluding GST:</strong></td>
+      </td>
+      <td class="clss-cell"> <%= pricePerWattIncGst %></td>
+      <td class="clss-cell">Per Watt</td>
+    </tr>
+    <tr class="clss-header">
+      <td class="clss-cell" colspan="2" style="text-align: right;"><strong>Total PV Module Watt:</strong></td>
+      </td>
+      <td class="clss-cell"> <%= modRating1*modQuantity1 %></td>
+      <td class="clss-cell">Watt</td>
+    </tr>
+    <tr class="clss-header">
+      <td class="clss-cell" style="text-align: right;" colspan="2"><strong>Final Amount:</strong></td>
+      <td class="clss-cell"> <%= pricePerWattIncGst*modRating1*modQuantity1 %></td>
+      <td class="clss-cell">Including GST</td>
+    </tr>
+    <tr>
+      <td class="clss-cell clss-total" colspan="4" style="text-align: left;"><strong>Amount in words:</strong></td>
+    </tr>
 </table>
 
 <!-- New table for Total Amount (Inc GST) -->
 
 
 <!--DEVIDER-->
-<br><br>
 
 
 <!-- Tax breakdown -->
  <!-- Bank & Terms -->
-<table class="clss-table" style="margin-top: 10px; margin-bottom: 50px;">
+<table class="clss-table" style="margin-top: 10px; margin-bottom: 10px;">
   <tr class="clss-header">
     <td class="clss-cell" width="33.33%"><strong>Bank Details</strong></td>
     <td class="clss-cell" width="33.34%"><strong>Terms & Conditions</strong></td>
@@ -345,7 +365,6 @@
     </td>
   </tr>
 </table>
-<br><br><br><br>
 <!-- Signature -->
  <table class="clss-table" style="margin-top: 20px;">
   <tr>

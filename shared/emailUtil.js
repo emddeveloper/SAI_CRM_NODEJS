@@ -19,8 +19,8 @@ export async function sendEmailWithPDF(pdfBuffer, ClientEmail, ClientName, TDGIN
   const subject = `🌞 Your GST Invoice from TD Solar [Invoice No: ${TDGINV}]`;
 
   const mailOptions = {
-    from: process.env.EMAIL_ID,
-    to: ClientEmail,
+    from: process.env.EMAIL_SENDER_NAME,
+    to: `${ClientEmail},admin@tdsolar.in,tdsolar9@gmail.com`,
     subject,
     html: `
       <div style="background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%); padding: 32px 0;">
